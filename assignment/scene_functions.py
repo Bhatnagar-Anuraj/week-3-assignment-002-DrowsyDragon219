@@ -1,4 +1,5 @@
 import maya.cmds as cmds
+import math
 
 def create_building(width=4, height=8, depth=4, position=(0, 0, 0)):
     building = cmds.polyCube(width=width,height=height,depth=depth)[0]
@@ -21,7 +22,7 @@ def create_fence(length=10, height=1.5, post_count=6, position=(0, 0, 0)):
         fences = []
         for i in range(post_count):
             post = cmds.polyCube(width=0.1, height=height, depth=0.1, name="post#")[0]
-            cmds.move(i*spacing,height,0, post)
+            cmds.move(i*spacing,height/2,0, post)
             fences.append(post)
     rail = cmds.polyCube(width=length, height=0.1, depth=0.05, name="rail#")[0]
     cmds.move(length/2,height,0, rail)
