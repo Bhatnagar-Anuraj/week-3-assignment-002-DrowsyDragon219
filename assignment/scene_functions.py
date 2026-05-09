@@ -5,6 +5,7 @@ def create_building(width=4, height=8, depth=4, position=(0, 0, 0)):
     building = cmds.polyCube(width=width,height=height,depth=depth)[0]
     cmds.move(position[0],height/2,position[2],building)
     return building
+    """This defines the function that allows me to create a building."""
 
 def create_tree(trunk_radius=0.3, trunk_height=3, canopy_radius=2, position=(0, 0, 0)):
     trunk = cmds.polyCylinder(radius=trunk_radius,height=trunk_height)[0]
@@ -15,6 +16,7 @@ def create_tree(trunk_radius=0.3, trunk_height=3, canopy_radius=2, position=(0, 
     tree = cmds.group(trunk,canopy, name="tree_group")
     cmds.move(position[0],position[1],position[2], tree)
     return tree
+    """This defines the function that allows me to create a tree."""
     
 def create_fence(length=10, height=1.5, post_count=6, position=(0, 0, 0)):
         if post_count < 2: post_count = 2
@@ -30,6 +32,7 @@ def create_fence(length=10, height=1.5, post_count=6, position=(0, 0, 0)):
     fence = cmds.group(fences, name="fence_group#")
     cmds.move(position[0],position[1],position[2], fence)
     return fence
+"""This defines the function that allows me to create a fence.I struggled a lot with this one."""
     
 def create_lamp_post(pole_height=5, light_radius=0.5, position=(0, 0, 0)):
     pole = cmds.polyCylinder(radius=0.2,height=pole_height)[0]
@@ -39,6 +42,7 @@ def create_lamp_post(pole_height=5, light_radius=0.5, position=(0, 0, 0)):
     lamp = cmds.group(pole,light, name="lamp_group")
     cmds.move(position[0],position[1],position[2], lamp)
     return lamp
+    """This defines the function that allows me to create a lamp."""
 
 def place_in_circle(create_func, count=8, radius=10, center=(0, 0, 0),
                      **kwargs):
@@ -51,3 +55,4 @@ def place_in_circle(create_func, count=8, radius=10, center=(0, 0, 0),
         results.append(arrangement)
 
     return results
+        """This is the function that I can call later in order to place things in a circle."""
